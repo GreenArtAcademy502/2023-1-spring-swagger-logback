@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.green.board7.BoardMapper">
+
+    <insert id="insBoard" parameterType="BoardDto">
+        INSERT INTO t_board
+        ( title, ctnt, writer )
+        VALUES
+        ( #{title}, #{ctnt}, #{writer} )
+    </insert>
+
+    <select id="selBoardAll" resultType="BoardVo">
+        SELECT iboard, title, writer
+            , created_at createdAt
+        FROM t_board
+    </select>
+
+    <select id="selBoardById" resultType="BoardDetailVo">
+        SELECT iboard, title, ctnt, writer
+        , created_at createdAt
+        , updated_at updatedAt
+        FROM t_board
+        WHERE iboard = ${iboard}
+    </select>
+
+    <update id="updBoard">
+        UPDATE t_board
+        SET title = #{title}
+        , ctnt = #{ctnt}
+        , writer = #{writer}
+        , updated_at = current_timestamp()
+        WHERE iboard = ${iboard}
+    </update>
+
+    <delete id="delBoard">
+        DELETE FROM t_board
+        WHERE iboard = ${iboard}
+    </delete>
+
+
+</mapper>
