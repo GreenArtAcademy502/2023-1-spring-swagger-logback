@@ -2,6 +2,7 @@ package com.green.board7;
 
 import com.green.board7.model.BoardDetailVo;
 import com.green.board7.model.BoardDto;
+import com.green.board7.model.BoardInsDto;
 import com.green.board7.model.BoardVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +18,7 @@ public class BoardService {
         this.mapper = mapper;
     }
 
-    public int insBoard(BoardDto dto) {
+    public int insBoard(BoardInsDto dto) {
         return mapper.insBoard(dto);
     }
 
