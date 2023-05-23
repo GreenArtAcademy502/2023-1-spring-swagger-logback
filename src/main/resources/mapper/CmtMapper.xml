@@ -11,4 +11,16 @@
         , pw = #{pw}
     </insert>
 
+    <select id="selBoardCmt" resultType="BoardCmtVo">
+        SELECT icmt, ctnt, writer
+        , created_at createdAt
+        FROM t_board_cmt
+        WHERE iboard = ${iboard}
+    </select>
+
+    <delete id="delBoardCmt">
+        DELETE FROM t_board_cmt
+        WHERE icmt = ${icmt} AND pw = #{pw}
+    </delete>
+
 </mapper>

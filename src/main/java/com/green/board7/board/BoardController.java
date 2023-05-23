@@ -33,7 +33,7 @@ public class BoardController {
     @Operation(summary = "글등록", description = "" +
             "title(string) : 제목 <br>\n" +
             "ctnt(string) : 내용<br>\n" +
-            "wrtier(string) : 작성자")
+            "writer(string) : 작성자")
     public int postBoard(@RequestBody BoardInsDto dto) {
         LOGGER.warn("경고, 글 등록이 됩니다.");
         return service.insBoard(dto);

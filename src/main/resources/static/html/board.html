@@ -3,10 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link href="/static/css/common.css" rel="stylesheet">
+    <link href="/static/css/board.css" rel="stylesheet">
 </head>
 <body>
     <h1>게시판</h1>
-    <div id="table"></div>
+    <div>
+        <a href="/static/html/boardWrite.html">글쓰기</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>번호</th>
+                    <th>제목</th>
+                    <th>작성자</th>
+                    <th>작성일</th>
+                </tr>
+            </thead>
+            <tbody id="table_list">
+            </tbody>
+        </table>
+    </div>
+    <div id="paging">
+    </div>
 </body>
 <script src="/static/js/board.js"></script>
 </html>
