@@ -1,4 +1,4 @@
-package com.green.board7.model;
+package com.green.board7.board.model;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

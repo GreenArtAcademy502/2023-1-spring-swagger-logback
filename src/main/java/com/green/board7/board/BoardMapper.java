@@ -1,9 +1,9 @@
-package com.green.board7;
+package com.green.board7.board;
 
-import com.green.board7.model.BoardDetailVo;
-import com.green.board7.model.BoardDto;
-import com.green.board7.model.BoardInsDto;
-import com.green.board7.model.BoardVo;
+import com.green.board7.board.model.BoardDetailVo;
+import com.green.board7.board.model.BoardDto;
+import com.green.board7.board.model.BoardInsDto;
+import com.green.board7.board.model.BoardVo;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
