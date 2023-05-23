@@ -22,8 +22,13 @@ public class BoardService {
         return mapper.insBoard(dto);
     }
 
-    public List<BoardVo> selBoardAll() {
-        return mapper.selBoardAll();
+    public List<BoardVo> selBoardAll(BoardDto dto) {
+        final int ROW_PER_PAGE = 30;
+        int startIdx = (dto.getPage() - 1) * ROW_PER_PAGE;
+        dto.setStartIdx(startIdx);
+        dto.setRowLen(ROW_PER_PAGE);
+
+        return mapper.selBoardAll(dto);
     }
 
     public BoardDetailVo selBoardById(BoardDto dto) {
