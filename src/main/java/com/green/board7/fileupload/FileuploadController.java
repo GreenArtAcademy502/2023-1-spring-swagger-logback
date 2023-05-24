@@ -25,4 +25,9 @@ public class FileuploadController {
         LOGGER.info("imgFileName: " + img.getOriginalFilename());
         service.fileUpload(dto, img);
     }
+
+    @GetMapping
+    public String imageView() {
+        return "";
+    }
 }
