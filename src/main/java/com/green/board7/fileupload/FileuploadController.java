@@ -1,4 +1,5 @@
 package com.green.board7.fileupload;
+import com.green.board7.fileupload.model.FileuploadInsDto;
 import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,7 +19,9 @@ public class FileuploadController {
     }
 
     @PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE })
-    public void fileupload(@RequestPart MultipartFile img) {
+    public void fileupload(@RequestPart FileuploadInsDto dto
+                        , @RequestPart MultipartFile img) {
+        LOGGER.info("dto : " + dto);
         LOGGER.info("imgFileName: " + img.getOriginalFilename());
         service.fileUpload(img);
     }
