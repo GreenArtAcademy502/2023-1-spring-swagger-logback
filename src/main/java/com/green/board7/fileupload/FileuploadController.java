@@ -20,5 +20,6 @@ public class FileuploadController {
     @PostMapping(consumes = { MediaType.APPLICATION_JSON_VALUE, MediaType.MULTIPART_FORM_DATA_VALUE })
     public void fileupload(@RequestPart MultipartFile img) {
         LOGGER.info("imgFileName: " + img.getOriginalFilename());
+        service.fileUpload(img);
     }
 }
