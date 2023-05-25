@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/fileupload")
 public class FileuploadController {
     private final Logger LOGGER;
-    private FileuploadService service;
+    private final FileuploadService service;
 
     @Autowired
     public FileuploadController(FileuploadService service) {
@@ -25,6 +25,8 @@ public class FileuploadController {
         LOGGER.info("imgFileName: " + img.getOriginalFilename());
         service.fileUpload(dto, img);
     }
+
+
 
     @GetMapping
     public String imageView() {

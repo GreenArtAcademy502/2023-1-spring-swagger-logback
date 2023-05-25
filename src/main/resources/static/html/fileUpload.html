@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>파일업로드</title>
+</head>
+<body>
+  <div>
+    <form id="frm">
+      <div><label>이미지: <input type="file" name="img" accept="image/*"></label></div>
+      <div><label>업로더: <input type="text" name="uploader"></label></div>
+      <div><label>중요도: <input type="number" name="level_cnt"></label></div>
+      <input type="button" name="submit_btn" value="업로드">
+    </form>
+
+  </div>
+</body>
+<script>
+  (function(){
+      const $frm = document.querySelector('#frm');
+      $frm.addEventListener('submit', e => {
+        e.preventDefault();
+      });
+      const $submitBtn = $frm.submit_btn;
+
+      const params = {
+          'uploader': $frm.uploader.value,
+          'levelValue': $frm.level_cnt.value
+      }
+      $submitBtn.addEventListener('click', () => {
+          const formData = new FormData();
+          formData.append('img', $frm.img.files[0]);
+          formData.append('dto', new Blob([JSON.stringify(params)], {type: 'application/json'}))
+
+          fetch('/fileupload', {
+              method: 'POST',
+              body: formData
+          })
+              .then(res => res.json())
+              .then(result => console.log(result));
+      });
+  })();
+</script>
+</html>
