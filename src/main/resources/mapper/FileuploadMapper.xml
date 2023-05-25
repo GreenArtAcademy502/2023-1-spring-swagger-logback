@@ -10,4 +10,9 @@
         , level_value = ${levelValue}
     </insert>
 
+    <select id="selFileById" resultType="FileEntity">
+        SELECT * FROM t_file
+        WHERE ifile = ${ifile}
+    </select>
+
 </mapper>

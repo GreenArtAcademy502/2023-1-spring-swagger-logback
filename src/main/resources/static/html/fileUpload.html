@@ -23,11 +23,13 @@
       });
       const $submitBtn = $frm.submit_btn;
 
-      const params = {
-          'uploader': $frm.uploader.value,
-          'levelValue': $frm.level_cnt.value
-      }
+
       $submitBtn.addEventListener('click', () => {
+          const params = {
+              'uploader': $frm.uploader.value,
+              'levelValue': $frm.level_cnt.value
+          }
+
           const formData = new FormData();
           formData.append('img', $frm.img.files[0]);
           formData.append('dto', new Blob([JSON.stringify(params)], {type: 'application/json'}))
